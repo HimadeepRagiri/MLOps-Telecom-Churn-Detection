@@ -172,7 +172,7 @@ python run_pipeline.py
 * Uses reference data stored in `data/production/reference/`
 * Every **30 days**:
 
-  * GitHub Actions triggers `drift_check.yaml`
+  * GitHub Actions triggers `drift_detection.yml`
   * Runs Evidently to compare live vs reference data
   * If drift is detected: retrains the model using ZenML
   * Pushes new model artifacts to repo
