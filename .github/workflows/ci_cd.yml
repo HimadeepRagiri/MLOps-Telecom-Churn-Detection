@@ -1,0 +1,65 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test-build-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies for testing
+        run: |
+          pip install -r requirements.txt
+
+      - name: Run Pytest
+        run: |
+          pytest
+
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Build Docker image
+        run: |
+          docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/churn-deployment:latest .
+
+      - name: Push Docker image to Docker Hub
+        run: |
+          docker push ${{ secrets.DOCKERHUB_USERNAME }}/churn-deployment:latest
+
+      - name: Deploy to EC2 via SSH
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USER }}
+          key: ${{ secrets.EC2_SSH_KEY }}
+          script: |
+            # Stop and remove all running containers
+            docker ps -q | xargs -r docker stop
+            docker ps -aq | xargs -r docker rm
+
+            # Remove all images
+            docker images -q | xargs -r docker rmi -f
+
+            # Pull latest image and run new container
+            docker pull ${{ secrets.DOCKERHUB_USERNAME }}/telecom-churn-deployment:latest
+
+            docker run -d --name churn-deployment -p 8501:8501 \
+              -e AWS_ACCESS_KEY_ID=${{ secrets.AWS_ACCESS_KEY_ID }} \
+              -e AWS_SECRET_ACCESS_KEY=${{ secrets.AWS_SECRET_ACCESS_KEY }} \
+              -e AWS_REGION=${{ secrets.AWS_REGION }} \
+              -e DYNAMODB_TABLE=${{ secrets.DYNAMODB_TABLE }} \
+              ${{ secrets.DOCKERHUB_USERNAME }}/telecom-churn-deployment:latest
