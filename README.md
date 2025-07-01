@@ -214,8 +214,9 @@ pytest tests/
 
 Include ROC Curve, Confusion Matrix, Precision-Recall Curve, and F1/Accuracy from model evaluation.
 
-![ROC Curve](artifacts/evaluation/roc_curve_best_model.png)
-![Confusion Matrix](artifacts/evaluation/confusion_matrix_best_model.png)
+![ROC Curve](artifacts/evaluation/roc_curve.png)
+![Confusion Matrix](artifacts/evaluation/confusion_matrix.png)
+![Precision Recall Curve](artifacts/evaluation/precision_recall_curve.png)
 
 ---
 
