@@ -79,7 +79,6 @@ MLOps-Telecom-Churn-Detection/
 │   ├── test_training.py
 │   └── test_smoke.py
 │
-├── drift_report.html                  # Drift report
 ├── last_processed.txt                 # Last drift detection date
 ├── run_pipeline.py                    # Entry point to trigger the ZenML pipeline
 ├── Dockerfile                         # Builds the Docker container for app deployment
