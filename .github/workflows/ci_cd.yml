@@ -51,7 +51,7 @@ jobs:
             docker ps -q | xargs -r docker stop
             docker ps -aq | xargs -r docker rm
 
-            # Remove all images
+            # Remove all existing images
             docker images -q | xargs -r docker rmi -f
 
             # Pull latest image and run new container
