@@ -133,7 +133,6 @@ EDA plots are saved under `artifacts/evaluation/`
 4. 🔀 Train-Test Split → `splitting.py`
 5. 🤖 Model Training (Multiple Models) → `training.py`
 6. ✅ Evaluation & Best Model Selection → `evaluation.py`
-7. 🚀 Deployment (Streamlit Web App) → `deployment.py`
 
 ---
 
@@ -142,7 +141,6 @@ EDA plots are saved under `artifacts/evaluation/`
 * Pipelines defined using `@step` and `@pipeline` decorators
 * Integrated MLflow logging
 * Best model is picked based on ROC-AUC
-* Deployment step is final step in the training pipeline
 
 Run with:
 
@@ -155,7 +153,7 @@ python run_pipeline.py
 
 ## ⚙️ Deployment (Streamlit + Docker + EC2)
 
-* Final pipeline step deploys Streamlit app
+* Github CI/CD pipeline deploys Streamlit app
 * Docker container built with all artifacts
 * Hosted on AWS EC2 with port exposed
 
@@ -272,7 +270,7 @@ zenml integration install sklearn evidently mlflow -y
 python run_pipeline.py
 ```
 
-This runs all the stages: ingestion, cleaning, feature engineering, training, evaluation, and deployment to a local Docker container running a Streamlit app.
+This runs all the stages: ingestion, cleaning, feature engineering, training and evaluation.
 
 ### 🪜 Run Unit Tests
 
