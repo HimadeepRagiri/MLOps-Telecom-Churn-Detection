@@ -196,7 +196,7 @@ python run_pipeline.py
   1. ✅ Run unit tests via `pytest`
   2. 🐳 Build Docker image
   3. 🚀 Push to DockerHub
-  4. ☁️ Deploy to EC2 server
+  4. ☁️ Deploy to EC2 server in cloud
 
 ---
 
