@@ -1,6 +1,17 @@
 # 📦 MLOps-Telecom-Churn-Detection
 
-An advanced end-to-end **MLOps pipeline** for Telecom Customer Churn Prediction using **ZenML**, **MLflow**, **Docker**, **GitHub Actions**, and **AWS EC2**. This project automates everything from data ingestion, preprocessing, model training & evaluation, deployment, drift detection, and CI/CD.
+**An advanced end-to-end **MLOps pipeline** for Telecom Customer Churn Prediction using **ZenML**, **MLflow**, **Docker**, **GitHub Actions**, and **AWS EC2**. This project automates everything from data ingestion, preprocessing, model training & evaluation, deployment, drift detection, and CI/CD.**
+
+[![ZenML](https://img.shields.io/badge/ZenML-Orchestration-6D4AFF?style=flat&logo=zenml)](https://zenml.io/)
+[![MLflow](https://img.shields.io/badge/MLflow-Tracking-0194E2?style=flat&logo=mlflow)](https://mlflow.org/)
+[![Docker](https://img.shields.io/badge/Docker-Containerization-2496ED?style=flat&logo=docker)](https://www.docker.com/)
+[![Streamlit](https://img.shields.io/badge/Streamlit-UI-FF4B4B?style=flat&logo=streamlit)](https://streamlit.io/)
+[![GitHub Actions](https://img.shields.io/badge/GitHub%20Actions-CI%2FCD-2088FF?style=flat&logo=github-actions)](https://github.com/features/actions)
+[![AWS EC2](https://img.shields.io/badge/AWS-EC2-F29111?style=flat&logo=amazon-aws)](https://aws.amazon.com/ec2/)
+[![DynamoDB](https://img.shields.io/badge/DynamoDB-Database-4053D6?style=flat&logo=amazon-dynamodb)](https://aws.amazon.com/dynamodb/)
+[![Evidently](https://img.shields.io/badge/Evidently-Drift%20Detection-00B5AD?style=flat)](https://evidentlyai.com/)
+[![Pytest](https://img.shields.io/badge/Pytest-Testing-0A9EDC?style=flat&logo=pytest)](https://docs.pytest.org/)
+[![Python](https://img.shields.io/badge/Python-3.10+-3776AB?style=flat&logo=python)](https://www.python.org/)
 
 ---
 
